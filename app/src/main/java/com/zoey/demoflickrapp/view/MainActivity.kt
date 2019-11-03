@@ -61,26 +61,26 @@ class MainActivity : AppCompatActivity() {
             progress_bar.visibility = View.VISIBLE
             refresh_layout.isRefreshing = false
         }
-
-        search_editText.setOnEditorActionListener(object : TextView.OnEditorActionListener {
-            override fun onEditorAction(textView: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+        search_editText.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 hideKeyboard()
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    searchedText = textView?.text.toString()
-                    if (searchedText != null) {
-                        viewModel.refresh(searchedText!!)
-                    } else {
-                        Toast.makeText(
-                            applicationContext,
-                            resources.getString(R.string.empty_search_text),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    return true
+                if (v.text.isNotEmpty()) {
+                    searchedText = v.text.toString()
+                    viewModel.refresh(searchedText!!)
+                } else {
+                    search_editText.setText(searchedText)
+                    Toast.makeText(
+                        applicationContext,
+                        resources.getString(R.string.empty_search_text),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                return false
+                true
+            } else {
+                false
             }
-        })
+        }
+
         observeViewModel()
     }
 
