@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Demo Flickr app</string>
+    <string name="loading_error">An error occurred while loading data</string>
+    <string name="image_url">http://farm %1$s .static.flickr.com/%2$s/%3$s_%4$s.jpg</string>
+    <string name="search_hint_text">Photos, people or groups</string>
+    <string name="empty_search_text">Please enter some text!</string>
+</resources>
