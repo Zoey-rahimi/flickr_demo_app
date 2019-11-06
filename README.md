@@ -2,9 +2,9 @@
 
 - This is a sample app which uses the Flickr image search API and shows the results in a 3-column scrollable view.
 
-- It contains one page which displays the first page of results returns by the API. If I have more time, I would have used the Paging library from jetpack to handle endless scrolling to display more images related to the searched value.
+- It contains one page which displays the first page of results returns by the API. If I had more time, I would have used the Paging library from jetpack to handle endless scrolling to display more images related to the searched value.
 
-- The app will display a random list of images for the dirst time that the suer opens the app.There is an edit text in the title bar which the user can use it to query a new list.
+- The app will display a random list of images for the first time that the user opens the app.There is an edit text in the title bar which can be used to query a new list.
 
 ## Design decisions and considerations
 
